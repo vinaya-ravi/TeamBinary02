@@ -1,0 +1,247 @@
+
+<!-- saved from url=(0037)/template3.html# -->
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <title>Chatbot Integration</title>
+    <link rel="canonical" href="https://codepen.io/yfs11013/pen/poaobVy">
+<style>
+ @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+     .file-input-container {
+         display: inline-block;
+         position: relative;
+     }
+     .topnav {
+        background-color: #3a77ac;
+        overflow: hidden;
+     }
+    .topnav a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    .topnav a:hover {
+      background-color: #555;
+    }
+        .file-input-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        /* Style for the pin logo image */
+        .pin-logo {
+            width: 20px; /* Adjust the size as needed */
+            height: auto;
+            margin-right: 5px; /* Add some spacing between the pin logo and text */
+        }
+        .logo {
+            float: left;
+            padding: 8px 16px;
+        }
+
+        .submitquestions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+        }
+
+        /* Hide the file input, so it's not visible */
+        input[type="file"] {
+            display: none;
+        }
+</style>
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+</head>
+<body translate="no">
+  <div class="topnav">
+    <div class="logo">
+      <img src="static/teambinaryo.jpg" alt="TeamBinary Logo" style="width:17%">
+    </div>
+    <a href="#home">Home</a>
+    <a href="#notification">Notification</a>
+    <a class="user-icon" href="#user-account"><i class="fa fa-user"></i> User</a>
+  </div>
+<!-- Dashboard -->
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+    <!-- Vertical Navbar -->
+    <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
+        <div class="container-fluid">
+            <!-- Toggler -->
+            <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="/template3.html#">
+                <!-- img src="{{ url_for('static', filename='teambinaryo.jpg') }}" alt="..."-->
+            </a>
+            <!-- User menu (mobile) -->
+            <div class="navbar-user d-lg-none">
+                <!-- Dropdown -->
+                <div class="dropdown">
+                    <!-- Toggle -->
+                    <a href="/template3.html#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar-parent-child">
+                            <img alt="Image Placeholder" src="{{ url_for('static', filename='teambinaryo.jpg') }}" class="avatar avatar- rounded-circle">
+                            <span class="avatar-child avatar-badge bg-success"></span>
+                        </div>
+                    </a>
+                    <!-- Menu -->
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
+                        <a href="/template3.html#" class="dropdown-item">Profile</a>
+                        <a href="/template3.html#" class="dropdown-item">Settings</a>
+                        <a href="/template3.html#" class="dropdown-item">Billing</a>
+                        <hr class="dropdown-divider">
+                        <a href="/template3.html#" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidebarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user_login">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            <i class="bi bi-bar-chart"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/chat">
+                            <i class="bi bi-chat"></i> Chatbot
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/result/INTJ">
+                            <i class="bi bi-bookmarks"></i> Collections
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            <i class="bi bi-people"></i> Users
+                        </a>
+                    </li>
+                </ul>
+                <!-- Divider -->
+                <hr class="navbar-divider my-5 opacity-20">
+                <!-- Navigation -->
+
+                <!-- Push content down -->
+                <div class="mt-auto"></div>
+                <!-- User (md) -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/template3.html#">
+                            <i class="bi bi-person-square"></i> Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/template3.html#">
+                            <i class="bi bi-box-arrow-left"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="h-screen flex-grow-1 overflow-y-lg-auto" style="overflow-y:none !important">
+        <!-- Header -->
+        <header class="bg-surface-primary border-bottom pt-6" style="height:10%">
+            <div class="container-fluid">
+                <div class="mb-npx">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                            <!-- Title -->
+                            <h1 class="h2 mb-0 ls-tight">ChatBot</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main -->
+        <main class="py-6 bg-surface-secondary">
+            <div class="container-fluid">
+                <!-- Card stats -->
+                <div class=" card-body chatbox" ">
+                    <div class="contianer chatbox__support chatbox--active" style="height:78vh;border-radius: 25px">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                            </div>
+                            <div class="chatbox__content--header">
+                                <h4 class="chatbox__heading--header">Chat support</h4>
+                            </div>
+                        </div>
+                        <div class="chatbox__messages" style="height: 100%;">
+                            <div class="messages__item messages__item--visitor"> Hi, welcome to personality Test </div>
+
+                        </div>
+                        <div class="quiz container bg-white d-flex flex-column align-items-center" style="border-radius: 25px;margin-top: 10px;padding:10px;"">
+                            <div class="card questions mb-3">
+                                <!-- Your question content here -->
+                            </div>
+                            <div class="card nextquestions mb-3">
+                                <!-- Your next question content here -->
+                            </div>
+                        </div>
+
+
+                        <div class="chatbox__footer">
+                            <div class="col-md-9">
+                                <input type="text" id = "result" placeholder="Write a message...">
+                            </div>
+                            <div class="col-md-1">
+                                <label class="file-input-container">
+                                    <span class="file-input-button">
+                                        <i class="fa fa-paperclip" style="font-size:24px"></i>
+                                    </span>
+                                    <input type="file" id="fileInput">
+                                </label>
+                            </div>
+                            <div class="col-md-1">
+                                <button id="start" class="chatbox__voice--footer voice__button btn" style="background-color: chartreuse;">
+                                    <i class="fa fa-microphone" style="font-size:24px"></i>
+                                </button>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="chatbox__send--footer send__button">
+                                <i class="fa fa-send-o" style="font-size:24px"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> -->
+<script type="text/javascript" src="{{ url_for('static', filename='app2.js') }}"></script>
+</html>
+
+
+

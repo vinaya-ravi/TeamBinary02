@@ -1,0 +1,96 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hey",
+          "How are you",
+          "Is anyone there?",
+          "Hello",
+          "Good day"
+        ],
+        "responses": [
+          "Hey :-)",
+          "Hello, thanks for visiting",
+          "Hi there, what can I do for you?",
+          "Hi there, how can I help?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": [
+          "See you later, thanks for visiting",
+          "Have a nice day",
+          "Bye! Come back again soon."
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "csv data ",
+        "patterns": [
+          "CSV file data import",
+          "csv file data import",
+          "Csv File Data Import",
+          "CSV File DATA IMPORT",
+          "CSV FILE DATA IMPORT",
+          "CSV FILE DATE IMPORT",
+          "csv file date import",
+          "1",
+          "One",
+          "first",
+          "beginning"
+        ],
+        "responses": [
+          "please upload your csv file by selecting the attachement button (beside the text input box)"
+        ]
+      },
+      {
+        "tag": "text data",
+        "patterns": [
+          "text based data entry",
+          "Text based data entry",
+          "Text Based Data Entry",
+          "TEXT BASED DATA ENTRY",
+          "TEXT Based Date Entry",
+          "2",
+          "two"
+        ],
+        "responses": [
+          "Plesase Enter the text to detect your personality"
+        ]
+      },
+      {
+        "tag": "quiz",
+        "patterns": [
+            "Quiz Based Assessment",
+            "QUIZ BASED ASSESSMENT",
+            "QUiz BASed Assessment",
+            "quiz assessment",
+            "quiz one",
+            "3",
+            "three"
+        ],
+        "responses": [
+          "please answer the following questions"
+        ]
+      },
+      {
+        "tag": "funny",
+        "patterns": [
+          "Tell me a joke!",
+          "Tell me something funny!",
+          "Do you know a joke?"
+        ],
+        "responses": [
+          "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+          "What did the buffalo say when his son left for college? Bison."
+        ]
+      }
+    ]
+  }

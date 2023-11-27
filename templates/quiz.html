@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href>
+  <a class="active" href="/logout">logout</a></a>
+</div>
+    <center>{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}</center>
+
+    <div class="container">
+        
+        <h1>Personality Quiz</h1>
+        <form method="POST" action="/submit">
+            {% for question, field in form._fields.items() %}
+                {% if "csrf_token" not in question %}
+                    <div>
+                        <p>{{ question }}</p>
+                        {{ field.label }}
+                        {% for choice in field %}
+                        <br/>
+                            {{ choice }}
+                            {{choice.data}}
+                        {% endfor %}
+                        <br/>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <br/>
+            <br/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+

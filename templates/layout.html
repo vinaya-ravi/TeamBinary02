@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="about"><button>About</button></a>
+
+    <a href="user_login"><button onclick="document.getElementById('id01').style.display='block'">User</button></a>
+
+    <!--a href="doctor_login"><button onclick="document.getElementById('id02').style.display='block'">Admin</button></a-->
+
+    <a  href="/home"><button class="active">Home</button></a>
+
+</div>
+
+<center><h1>Personality Prediction Using Machine Learning</h1></center>
+    <div style="margin-left: 200px; margin-right:200px; margin-top: 60px;">
+        <p style="margin-bottom: 30px; "><strong><em>Five Personality Aspects</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">This section will describe five personality aspects that, when combined, define the personality
+            type: Energy,<br> Mind, Nature, Tactics and Identity. Each of these aspects should be seen as a
+            two-sided continuum, with the<br> “neutral” option placed in the middle. The percentages you would
+            have seen after completing the test are<br> meant to show which categories you fall under, and how
+            strong your preferences are.
+            <br><br>Let us now go through the personality aspects one by one:</p>
+
+
+        <p style="margin-bottom: 20px;"><strong><em>Energy</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">This aspect shows how we interact with our surroundings:</p>
+
+        <img src="{{url_for('static', filename='energy1.svg')}}" align="center" style="width:400px;height:400px;"/>
+        <p align="left">Introverted individuals prefer solitary activities and get exhausted by social interaction.
+            They tend to be quite<br> sensitive to external stimulation (e.g. sound, sight or smell) in general.</p>
+        <img src="{{url_for('static', filename='energy2.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+        <p align="right-center">Extraverted individuals prefer group activities and get energized by social interaction. They tend to be
+            more enthusiastic and more easily excited than Introverts.</p>
+
+
+        <p style="margin-bottom: 20px;"><strong><em>Mind</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">The second aspect determines how we see the world and process information:</p>
+
+        <img src="{{url_for('static', filename='mind1.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+        <p align="left">Observant individuals are highly practical, pragmatic and down-to-earth.
+            They tend to have strong habits and focus on what is happening or has already happened.</p>
+        <img src="{{url_for('static', filename='mind2.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+        <p align="right-center">Intuitive individuals are very imaginative, open-minded and curious.
+            They prefer to novelty over stability and focus on hidden meanings and future possibilities.</p>
+
+
+        <p style="margin-bottom: 20px;"><strong><em>Nature</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">This aspect determines how we make decisions and cope with emotions:</p>
+
+        <img src="{{url_for('static', filename='Nature1.svg')}}" align="center" style="width:400px;height:400px;"/>
+        <p align="left">Thinking-Individuals focus on objectivity and rationality, prioritizing logic over emotions.
+            They tend to hide their feelings and see efficiency as more important than cooperation.</p>
+        <img src="{{url_for('static', filename='Nature2.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+
+
+        <p align="right-center">Feeling individuals are sensitive and emotionally expressive.
+            They are more empathic and
+            less competitive than Thinking types, and focus on social harmony and cooperation.</p>
+
+        <p style="margin-bottom: 20px;"><strong><em>Tactics</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">This aspect reflects our approach to work, planning and decision-making:</p>
+
+        <img src="{{url_for('static', filename='tactics1.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+        <p align="left">Judging_individuals are decisive, thorough and highly organized. They value clarity,
+            predictability and closure, preferring structure and planning to spontaneity.</p>
+        <img src="{{url_for('static', filename='tactics.svg')}}" align="center" style="width:400px;height:400px;"/>
+        <p align="right-center">Prospecting individuals are very good at improvising and spotting opportunities.
+            They tend to be flexible, relaxed nonconformists who prefer keeping their options open.</p>
+
+        <p style="margin-bottom: 20px;"><strong><em>Identity</em></strong></p>
+        <p style ="font-family: Ubuntu, sans-serif;">Finally, the Identity aspect underpins all others,
+            showing how confident we are in our abilities and decisions:</p>
+
+        <img src="{{url_for('static', filename='identity1.svg')}}" align="center" style="width:400px;height:400px;"/>
+        <p align="left">Assertive (-A) individuals are self-assured, even-tempered and resistant to stress.
+            They refuse to worry too much and do not push themselves too hard when it comes to achieving goals.</p>
+        <img src="{{url_for('static', filename='identity2.svg')}}" align="center" style="width:400px;height:400px;"/>
+
+        <p align="right-center">Turbulent (-T) individuals are self-conscious and sensitive to stress. They
+            are likely to experience a wide range of emotions and to be success-driven, perfectionistic and
+            eager to improve.</p>
+
+    </div>
+
+
+
+</body>
+</html>

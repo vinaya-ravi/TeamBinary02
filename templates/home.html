@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+  <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Team Binary</title>
+  <style>
+     @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+
+    .topnav {
+      background-color: #3a77ac;
+      overflow: hidden;
+    }
+
+    .topnav a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: #555;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: white;
+      padding: 20px;
+      height: 100%;
+      position: fixed;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+    }
+
+    .user-icon {
+      float: right;
+      padding: 14px 16px;
+      color: white;
+    }
+
+    .logo {
+      float: left;
+      padding: 8px 16px;
+    }
+
+    .file-input-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Style for the file input button */
+    .file-input-button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Style for the pin logo image */
+    .pin-logo {
+      width: 20px;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    .submitquestions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Hide the file input, so it's not visible */
+    input[type="file"] {
+      display: none;
+    }
+
+    .logo img {
+      max-height: 32px;
+    }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-slide {
+      width: 100%;
+      display: none;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    #prev-button,
+    #next-button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="logo">
+      <img src="static/teambinaryo.jpg" alt="TeamBinary Logo">
+    </div>
+    <a href="#home">Home</a>
+    <a href="#notification">Notification</a>
+    <a class="user-icon" href="#user-account"><i class="fa fa-user"></i> User</a>
+  </div>
+  <div class="sidebar">
+    <a href="/home"><i class="bi bi-house" style="padding-right: 10px"></i>Home</a>
+    <a href="/about"><i class="bi bi-bar-chart" style="padding-right: 10px"></i>Analytics</a>
+    <a href="/chat"><i class="bi bi-chat" style="padding-right: 10px"></i>Chatbot</a>
+    <a href="/Results"><i class="bi bi-bookmarks" style="padding-right: 10px"></i>Collection</a>
+    <a href="/User"><i class="bi bi-people" style="padding-right: 10px"></i>Users</a>
+  </div>
+  <div class="container tb-pp-body">
+    <h1 style="padding-left: 45%;padding-right: 3%; ">Introduction</h1>
+     <div class="carousel-inner">
+        <div class="item active">
+          <img src="static/image1.jpg"  style="width: 58%;position: relative;left: 22%;">
+        </div>
+
+        <div class="item">
+          <img src="static/image1.jpg"  style="width:100%;">
+        </div>
+
+        <div class="item">
+          <img src="static/image2.jpg"  style="width:100%;">
+        </div>
+      </div>
+      <br><br>
+    <div style="padding-left: 15%;padding-right: 3%;">
+      Personality is defined as the unique combination of thoughts, behaviors, and emotional patterns that result from both biological and environmental factors. It reflects individual differences in thoughts, behaviors, and feelings. Personality traits are consistent worldwide, offering a range of specific attributes that individuals possess consistently,rather than reflecting a specific personality. <br><br>These differences in personality are important to prevent obstacles or conflicts in the context of work or education. Thus, to identify an individual's distinct personality, a machine learning model, the Myers-Briggs Type Indicator (MBTI), is developed.
+      The MBTI model follows the principles of MBTI guidelines to help identify a user's personality based on four dimensions: Introvert (I) and Extrovert (E), Sensation (S) and Intuition (N), Thinking (T) and Feeling (F), and Perceiving (P) and Judging (J). The combination of these dimensions results in sixteen personality types, such as "INFJ" or "ENFP".<br><br> In our model, we have employed algorithms like KNN, Logistic Regression, and XG Boost. We sourced our dataset from Kaggle.
+      Our model begins by importing the dataset from Kaggle and conducting data analysis to identify any missing or null values. The analyzed data is then subjected to data preprocessing to clean it. After the cleaning process, the data is passed to feature engineering. Finally, we compare the algorithms with each other to select the best one for our model, which can predict the personality of each individual.
+     </div>
+    </div>
+  </h1>
+</body>
+</html>

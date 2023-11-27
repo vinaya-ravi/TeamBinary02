@@ -1,0 +1,311 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #0d3e4f;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.chatButton {
+  position: fixed;
+  padding: 25px;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+}
+.roundedChatButton {
+  height: 60px;
+  line-height: 80px;
+  width: 60px;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.roundedChatButton i {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  padding-top: 12px;
+}
+
+.roundedChatButton:hover {
+  height: 62px;
+  width: 62px;
+  line-height: 82px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  min-width: 520px;
+  max-width: 550px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px 0px #ccc;
+  z-index: 9999;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.chat-popup-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  border-top-left-radius: 10px; /* Rounded corners for header */
+  border-top-right-radius: 10px;
+}
+
+.chat-popup-header img {
+  max-width: 120px; /* Adjust the size of your logo */
+  margin-right: 10px;
+}
+
+.chat-popup-content {
+  padding: 10px;
+  max-height: 300px; /* Limit chat content height */
+  overflow-y: scroll; /* Add scrollbar if content exceeds max height */
+  /* Add these new styles for infinite scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling behavior */
+  scrollbar-width: none; /* Hide the scrollbar */
+}
+
+.chat-input-container {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  align-items: center; /* Center vertically */
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 25px; /* Rounded corners */
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  white-space: pre-wrap;
+}
+
+.chat-input:focus {
+  outline: none;
+}
+
+.chat-icons {
+  display: flex;
+  align-items: center;
+}
+
+.chat-icons i {
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Chat Message Styles */
+.chat-message {
+  display: flex;
+  justify-content: flex-end; /* User's messages on the right */
+  margin-bottom: 10px;
+  align-items: center; /* Center vertically */
+}
+
+.chat-message-bot {
+  justify-content: flex-start; /* Chatbot's messages on the left */
+  flex-direction: column;
+  display: flex;
+}
+
+.message-bubble {
+  background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%; /* Limit message width */
+    word-wrap: break-word; /* Allow long words to wrap */
+    overflow-wrap: break-word;
+}
+
+/* User Profile Icon */
+.user-icon {
+  background-color: lightgreen; /* Adjust the color */
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Rounded profile icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* Chatbot Robo Icon */
+.robo-icon {
+  background-color: lightgreen; /* Adjust the color */
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Rounded robo icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.chat-button-open {
+  display: block;
+}
+
+.chat-button-close {
+  display: none;
+}
+#closeChat {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 4px;
+  padding-bottom: 3px;
+  color: black;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#closeChat:hover {
+  background-color: lightgrey;
+  border-radius: 50%;
+  color: black;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.foo {
+  float: medal;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.green {
+  background: #4dff4d;
+}
+
+.grey {
+  background: #5e5e5e;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.callout {
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.callout-header {
+  padding: 25px 15px;
+  background: #0d3e4f;
+  font-size: 30px;
+  color: white;
+}
+
+.callout-container {
+  padding: 15px;
+  background-color: #ccc;
+  color: black;
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: lightgrey;
+}

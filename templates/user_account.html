@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href>
+  <a class="active" href="/logout">logout</a></a>
+</div>
+    <center>{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}</center>
+
+    <div class="container">
+        <br>
+        <br>
+        <center>
+        <form action = "/predict" method = "post" enctype="multipart/form-data">
+
+            <label for="psw"><b></b></label>enter Posts  <input type="text" placeholder="" name="posts" ><br>
+            <br>
+            <br>
+            <button type="submit">Predict</button>
+
+        </form></center>
+        <form action = "/get_tweet" method = "post" enctype="multipart/form-data">
+
+            <label for="psw"><b></b></label>enter Name <input type="text" placeholder="" name="Name" ><br>
+            <br>
+            <br>
+            <button type="submit">get_tweet</button>
+        </form></center>
+    </div>
+    <div class="chatbox">
+        <div class="chatbox__support ">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='icon.svg') }}"  /></button>
+        </div>
+    </div>
+    
+    <!-- Chat Button -->
+    <!-- <a class="chatButton chat-button-open" id="openChat" href="#">
+        <div class="roundedChatButton"><i class="fa fa-comment"></i></div>
+    </a> -->
+
+
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8a5d906c-4a7e-4107-93c8-6b064ce60e62/resourceGroups/teambinary/providers/Microsoft.Web/sites/TeamBinary",
+    "appService.deploySubpath": "."
+}

@@ -124,8 +124,10 @@ def home():
 @app.route("/about")
 def about():
    return render_template('about.html')
-#-------------------------------------about_page-------------------------------------------------------------------------
-
+#-------------------------------------ratings_page-------------------------------------------------------------------------
+@app.route("/ratings")
+def ratings():
+   return render_template('ratings.html')
 #-------------------------------------user_login_page-------------------------------------------------------------------------
 @app.route('/user_login',methods = ['POST', 'GET'])
 def user_login():

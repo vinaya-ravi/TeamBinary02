@@ -1,0 +1,235 @@
+<!-- ratings_and_reviews.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Add other stylesheets and scripts as needed -->
+    <title>Team Binary</title>
+    <style>
+        /* Add your additional styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .topnav {
+            background-color: #3a77ac;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .container.tb-pp-body {
+            margin-top: 50px;
+            padding: 80px;
+            padding-left: 237px;
+        }
+
+        .introduction-heading {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .main-heading {
+            padding-left: 233px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #3a77ac;
+        }
+
+        .topnav a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #555;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            padding: 20px;
+            height: 100%;
+            position: fixed;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .user-icon {
+            float: right;
+            padding: 14px 16px;
+            color: white;
+        }
+
+        .logo {
+            float: left;
+            padding: 8px 16px;
+        }
+
+        .file-input-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Style for the file input button */
+        .file-input-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Style for the pin logo image */
+        .pin-logo {
+            width: 20px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        .submitquestions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hide the file input, so it's not visible */
+        input[type="file"] {
+            display: none;
+        }
+
+        .logo img {
+            max-height: 32px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        #prev-button,
+        #next-button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <img src="static/teambinaryo.jpg" alt="TeamBinary Logo">
+        </div>
+        <a href="#home">Home</a>
+        <a href="#notification" class="notification-link">Notification</a>
+        <script>
+            $(document).ready(function () {
+                $('.notification-link').click(function (event) {
+                    event.preventDefault();
+                    var currentHref = $(this).attr('href');
+                    var updatedHref = currentHref + '#notification';
+                    window.location.href = updatedHref;
+                    alert('Hi, I am there!');
+                });
+            });
+        </script>
+        
+        <a class="user-icon" href="#user-account"><i class="fa fa-user"></i> User</a>
+    </div>
+    <div class="sidebar">
+        <a href="/home"><i class="bi bi-house" style="padding-right: 10px"></i>Home</a>
+        <a href="/analytics"><i class="bi bi-bar-chart" style="padding-right: 10px"></i>Analytics</a>
+        <a href="/chat"><i class="bi bi-chat" style="padding-right: 10px"></i>Chatbot</a>
+        <a href="/result/INTJ"><i class="bi bi-bookmarks" style="padding-right: 10px"></i>Collection</a>
+        <a href="/ratings"><i class="bi bi-people" style="padding-right: 10px"></i>Ratings</a>
+    </div>
+    <!-- Add your ratings and reviews content below this line -->
+    <div class="container tb-pp-body">
+        <h2>Ratings and Reviews</h2>
+
+        <!-- Example Review 1 -->
+        <div class="review">
+            <p>User123</p>
+            <p class="rating">★★★★☆</p>
+            <p>This is a great product. I highly recommend it!</p>
+        </div>
+
+        <!-- Example Review 2 -->
+        <div class="review">
+            <p>User456</p>
+            <p class="rating">★★★☆☆</p>
+            <p>Not bad, but could use some improvements.</p>
+        </div>
+
+        <!-- Add more reviews as needed -->
+
+        <!-- Review Form (for demonstration purposes) -->
+        <div class="review">
+            <h3>Add Your Review</h3>
+            <!-- Add a form for users to submit new reviews -->
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="1">★☆☆☆☆</option>
+                </select>
+
+                <label for="review">Review:</label>
+                <textarea id="review" name="review" rows="4" required></textarea>
+
+                <input type="submit" value="Submit Review">
+            </form>
+        </div>
+    </div>
+    <!-- End of ratings and reviews content -->
+</body>
+
+</html>

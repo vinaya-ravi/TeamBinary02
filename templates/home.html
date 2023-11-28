@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>Team Binary</title>
   <style>
-     @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
     /* Add your CSS styles here */
     body {
       font-family: Arial, sans-serif;
@@ -19,11 +19,33 @@
       padding: 0;
       background-color: #f0f0f0;
     }
-    @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+    @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
 
     .topnav {
       background-color: #3a77ac;
       overflow: hidden;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      top: 0; /* Ensure the topnav is at the top of the viewport */
+    }
+
+    .container.tb-pp-body {
+      margin-top: 50px;
+    }
+
+    .introduction-heading {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .main-heading {
+      padding-left: 233px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #3a77ac;
     }
 
     .topnav a {
@@ -143,33 +165,93 @@
   </div>
   <div class="sidebar">
     <a href="/home"><i class="bi bi-house" style="padding-right: 10px"></i>Home</a>
-    <a href="/about"><i class="bi bi-bar-chart" style="padding-right: 10px"></i>Analytics</a>
+    <a href="/analytics"><i class="bi bi-bar-chart" style="padding-right: 10px"></i>Analytics</a>
     <a href="/chat"><i class="bi bi-chat" style="padding-right: 10px"></i>Chatbot</a>
     <a href="/Results"><i class="bi bi-bookmarks" style="padding-right: 10px"></i>Collection</a>
     <a href="/User"><i class="bi bi-people" style="padding-right: 10px"></i>Users</a>
   </div>
   <div class="container tb-pp-body">
-    <h1 style="padding-left: 45%;padding-right: 3%; ">Introduction</h1>
-     <div class="carousel-inner">
-        <div class="item active">
-          <img src="static/image1.jpg"  style="width: 58%;position: relative;left: 22%;">
-        </div>
-
-        <div class="item">
-          <img src="static/image1.jpg"  style="width:100%;">
-        </div>
-
-        <div class="item">
-          <img src="static/image2.jpg"  style="width:100%;">
-        </div>
-      </div>
-      <br><br>
-    <div style="padding-left: 15%;padding-right: 3%;">
-      Personality is defined as the unique combination of thoughts, behaviors, and emotional patterns that result from both biological and environmental factors. It reflects individual differences in thoughts, behaviors, and feelings. Personality traits are consistent worldwide, offering a range of specific attributes that individuals possess consistently,rather than reflecting a specific personality. <br><br>These differences in personality are important to prevent obstacles or conflicts in the context of work or education. Thus, to identify an individual's distinct personality, a machine learning model, the Myers-Briggs Type Indicator (MBTI), is developed.
-      The MBTI model follows the principles of MBTI guidelines to help identify a user's personality based on four dimensions: Introvert (I) and Extrovert (E), Sensation (S) and Intuition (N), Thinking (T) and Feeling (F), and Perceiving (P) and Judging (J). The combination of these dimensions results in sixteen personality types, such as "INFJ" or "ENFP".<br><br> In our model, we have employed algorithms like KNN, Logistic Regression, and XG Boost. We sourced our dataset from Kaggle.
-      Our model begins by importing the dataset from Kaggle and conducting data analysis to identify any missing or null values. The analyzed data is then subjected to data preprocessing to clean it. After the cleaning process, the data is passed to feature engineering. Finally, we compare the algorithms with each other to select the best one for our model, which can predict the personality of each individual.
-     </div>
+    <div class="introduction-heading">
+      Introduction
     </div>
-  </h1>
+
+    <div class="main-heading">
+      Personality Prediction Using Machine Learning
+    </div>
+  <div style="margin-left: 200px; margin-right:200px; margin-top: 60px;">
+      <p style="margin-bottom: 30px; "><strong><em>Five Personality Aspects</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">This section will describe five personality aspects that, when combined, define the personality
+          type: Energy,<br> Mind, Nature, Tactics and Identity. Each of these aspects should be seen as a
+          two-sided continuum, with the<br> “neutral” option placed in the middle. The percentages you would
+          have seen after completing the test are<br> meant to show which categories you fall under, and how
+          strong your preferences are.
+          <br><br>Let us now go through the personality aspects one by one:</p>
+
+
+      <p style="margin-bottom: 20px;"><strong><em>Energy</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">This aspect shows how we interact with our surroundings:</p>
+
+      <img src="{{url_for('static', filename='energy1.png')}}" align="center" style="width:400px;height:400px;"/>
+      <p align="left">Introverted individuals prefer solitary activities and get exhausted by social interaction.
+          They tend to be quite<br> sensitive to external stimulation (e.g. sound, sight or smell) in general.</p>
+      <img src="{{url_for('static', filename='energy2.png')}}" align="center" style="width:400px;height:400px;"/>
+
+      <p align="right-center">Extraverted individuals prefer group activities and get energized by social interaction. They tend to be
+          more enthusiastic and more easily excited than Introverts.</p>
+
+
+      <p style="margin-bottom: 20px;"><strong><em>Mind</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">The second aspect determines how we see the world and process information:</p>
+
+      <img src="{{url_for('static', filename='mind1.png')}}" align="center" style="width:400px;height:400px;"/>
+
+      <p align="left">Observant individuals are highly practical, pragmatic and down-to-earth.
+          They tend to have strong habits and focus on what is happening or has already happened.</p>
+      <img src="{{url_for('static', filename='mind2.png')}}" align="center" style="width:400px;height:400px;"/>
+
+      <p align="right-center">Intuitive individuals are very imaginative, open-minded and curious.
+          They prefer to novelty over stability and focus on hidden meanings and future possibilities.</p>
+
+
+      <p style="margin-bottom: 20px;"><strong><em>Nature</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">This aspect determines how we make decisions and cope with emotions:</p>
+
+      <img src="{{url_for('static', filename='Nature1.png')}}" align="center" style="width:400px;height:400px;"/>
+      <p align="left">Thinking-Individuals focus on objectivity and rationality, prioritizing logic over emotions.
+          They tend to hide their feelings and see efficiency as more important than cooperation.</p>
+      <img src="{{url_for('static', filename='Nature2.png')}}" align="center" style="width:400px;height:400px;"/>
+
+
+
+      <p align="right-center">Feeling individuals are sensitive and emotionally expressive.
+          They are more empathic and
+          less competitive than Thinking types, and focus on social harmony and cooperation.</p>
+
+      <p style="margin-bottom: 20px;"><strong><em>Tactics</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">This aspect reflects our approach to work, planning and decision-making:</p>
+
+      <img src="{{url_for('static', filename='tactics1.png')}}" align="center" style="width:400px;height:400px;"/>
+
+      <p align="left">Judging_individuals are decisive, thorough and highly organized. They value clarity,
+          predictability and closure, preferring structure and planning to spontaneity.</p>
+      <img src="{{url_for('static', filename='tactics.png')}}" align="center" style="width:400px;height:400px;"/>
+      <p align="right-center">Prospecting individuals are very good at improvising and spotting opportunities.
+          They tend to be flexible, relaxed nonconformists who prefer keeping their options open.</p>
+
+      <p style="margin-bottom: 20px;"><strong><em>Identity</em></strong></p>
+      <p style ="font-family: Ubuntu, sans-serif;">Finally, the Identity aspect underpins all others,
+          showing how confident we are in our abilities and decisions:</p>
+
+      <img src="{{url_for('static', filename='identity1.png')}}" align="center" style="width:400px;height:400px;"/>
+      <p align="left">Assertive (-A) individuals are self-assured, even-tempered and resistant to stress.
+          They refuse to worry too much and do not push themselves too hard when it comes to achieving goals.</p>
+      <img src="{{url_for('static', filename='identity2.png')}}" align="center" style="width:400px;height:400px;"/>
+
+      <p align="right-center">Turbulent (-T) individuals are self-conscious and sensitive to stress. They
+          are likely to experience a wide range of emotions and to be success-driven, perfectionistic and
+          eager to improve.</p>
+
+  </div>
+  </div>
 </body>
 </html>

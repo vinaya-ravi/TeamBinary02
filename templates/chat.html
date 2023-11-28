@@ -1,4 +1,3 @@
-
 <!-- saved from url=(0037)/template3.html# -->
 <html lang="en">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,7 +18,11 @@
      .topnav {
         background-color: #3a77ac;
         overflow: hidden;
+        width: 100%;
+        padding: 0px 102px;
+        z-index: 1000;
      }
+
     .topnav a {
       float: right;
       display: block;
@@ -41,15 +44,14 @@
             display: inline-flex;
             align-items: center;
         }
-        /* Style for the pin logo image */
         .pin-logo {
-            width: 20px; /* Adjust the size as needed */
+            width: 20px; 
             height: auto;
-            margin-right: 5px; /* Add some spacing between the pin logo and text */
+            margin-right: 5px; 
         }
         .logo {
             float: left;
-            padding: 8px 16px;
+            padding:-40px 0px;
         }
 
         .submitquestions {
@@ -59,7 +61,6 @@
             /* height: 100vh; */
         }
 
-        /* Hide the file input, so it's not visible */
         input[type="file"] {
             display: none;
         }
@@ -115,7 +116,7 @@
             <div class="collapse navbar-collapse" id="sidebarCollapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user_login">
+                        <a class="nav-link" href="/home">
                             <i class="bi bi-house"></i> Home
                         </a>
                     </li>

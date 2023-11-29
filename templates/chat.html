@@ -77,7 +77,30 @@
     </div>
     <a href="#home">Home</a>
     <a href="#notification" class="notification-link">Notification</a>
-    <a class="user-icon" href="#user-account"><i class="fa fa-user"></i> User</a>
+    <script>
+        $(document).ready(function () {
+            $('.notification-link').click(function (event) {
+                event.preventDefault();
+                var currentHref = $(this).attr('href');
+                var updatedHref = currentHref + '#notification';
+                window.location.href = updatedHref;
+                alert('Hi, I am there!');
+            });
+        });
+    </script>
+    <a class="user-icon" href="#" id="user-icon"><i class="fa fa-user"></i> User</a>
+    <script>
+      document.getElementById('user-icon').addEventListener('click', function (event) {
+        event.preventDefault();
+        var currentUrl = window.location.href;
+        if (currentUrl.includes('#user-account')) {
+          return;
+        }
+        const { protocol, hostname, port, pathname } = new URL(currentUrl);
+        var updatedUrl = `${protocol}//${hostname}:${port}/user_login`;
+        window.location.href = updatedUrl;
+      });
+    </script>
   </div>
 <!-- Dashboard -->
 <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">

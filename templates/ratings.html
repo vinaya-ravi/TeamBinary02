@@ -1,25 +1,89 @@
-<!-- ratings_and_reviews.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
     <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- Add other stylesheets and scripts as needed -->
     <title>Team Binary</title>
     <style>
-        /* Add your additional styles here */
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+        }
+
+        @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+        
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .review {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .review p {
+            margin: 5px 0;
+        }
+
+        .rating {
+            color: #FFD700; /* Golden color for stars */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
         }
 
         .topnav {
@@ -29,12 +93,11 @@
             width: 100%;
             z-index: 1000;
             top: 0;
+            /* Ensure the topnav is at the top of the viewport */
         }
 
         .container.tb-pp-body {
             margin-top: 50px;
-            padding: 80px;
-            padding-left: 237px;
         }
 
         .introduction-heading {
@@ -70,7 +133,7 @@
             padding: 20px;
             height: 100%;
             position: fixed;
-            padding: 0.75rem 1.5rem;
+            padding: 4.75rem 1.5rem;
         }
 
         .sidebar a {
@@ -175,8 +238,19 @@
                 });
             });
         </script>
-        
-        <a class="user-icon" href="#user-account"><i class="fa fa-user"></i> User</a>
+        <a class="user-icon" href="#" id="user-icon"><i class="fa fa-user"></i> User</a>
+        <script>
+            document.getElementById('user-icon').addEventListener('click', function (event) {
+                event.preventDefault();
+                var currentUrl = window.location.href;
+                if (currentUrl.includes('#user-account')) {
+                    return;
+                }
+                const { protocol, hostname, port, pathname } = new URL(currentUrl);
+                var updatedUrl = `${protocol}//${hostname}:${port}/user_login`;
+                window.location.href = updatedUrl;
+            });
+        </script>
     </div>
     <div class="sidebar">
         <a href="/home"><i class="bi bi-house" style="padding-right: 10px"></i>Home</a>
@@ -186,7 +260,7 @@
         <a href="/ratings"><i class="bi bi-people" style="padding-right: 10px"></i>Ratings</a>
     </div>
     <!-- Add your ratings and reviews content below this line -->
-    <div class="container tb-pp-body">
+    <div class="container">
         <h2>Ratings and Reviews</h2>
 
         <!-- Example Review 1 -->

@@ -1,39 +1,261 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-  <center>{% with messages = get_flashed_messages() %}
-   {% if messages %}
-     <ul class="flashes">
-        {% for message in messages %}
-         <div class="message_flash">{{ message }}</div>
-        {% endfor %}
-    </ul>
-  {% endif %}
- {% endwith %}</center>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+  <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Team Binary</title>
+  <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
 
-  <form action="/user_login" method="post">
+    form {
+      background-color: white;
+      padding: 422px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
+    h2 {
+      text-align: center;
+    }
 
-    <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" >
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" >
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
 
-      <button type="submit">Login</button>
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        <label><b>New user</b></label>
-            <a href="/user_register" class ='btn2' type="submit">register</a>
+    button:hover {
+      background-color: #2980b9;
+    }
 
+    .topnav {
+      background-color: #3a77ac;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      top: 0; /* Ensure the topnav is at the top of the viewport */
+    }
 
+    .container.tb-pp-body {
+      margin-top: 50px;
+    }
+
+    .introduction-heading {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .main-heading {
+      padding-left: 233px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #3a77ac;
+    }
+
+    .topnav a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: #555;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: white;
+      padding: 20px;
+      height: 100%;
+      position: fixed;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .sidebar a:hover {
+      background-color: #555;
+    }
+
+    .user-icon {
+      float: right;
+      padding: 14px 16px;
+      color: white;
+    }
+
+    .logo {
+      float: left;
+      padding: 8px 16px;
+    }
+
+    .file-input-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Style for the file input button */
+    .file-input-button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Style for the pin logo image */
+    .pin-logo {
+      width: 20px;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    .submitquestions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Hide the file input, so it's not visible */
+    input[type="file"] {
+      display: none;
+    }
+
+    .logo img {
+      max-height: 32px;
+    }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-slide {
+      width: 100%;
+      display: none;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    #prev-button,
+    #next-button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="logo">
+      <img src="static/teambinaryo.jpg" alt="TeamBinary Logo">
     </div>
+    <a href="#home">Home</a>
+    <a href="#notification" class="notification-link">Notification</a>
+    <script>
+      $(document).ready(function () {
+          $('.notification-link').click(function (event) {
+              event.preventDefault();
+              var currentHref = $(this).attr('href');
+              var updatedHref = currentHref + '#notification';
+              window.location.href = updatedHref;
+              alert('Hi, I am there!');
+          });
+      });
+  </script>
+    <a class="user-icon" href="#" id="user-icon"><i class="fa fa-user"></i> User</a>
+<script>
+  document.getElementById('user-icon').addEventListener('click', function (event) {
+    event.preventDefault();
+    var currentUrl = window.location.href;
+    if (currentUrl.includes('#user-account')) {
+      return;
+    }
+    var updatedUrl = currentUrl + '#user-account';
+    window.location.href = updatedUrl;
+  });
+</script>
+  </div>
+  <div class="container tb-pp-body">
+    <div>
+      <form action="/login" method="post">
+        <h2>Login</h2>
+        <!-- Your login form fields go here -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
 
-  </form>
+          <button type="submit"><a href="/user_register">Register</a></button>
+      </form>
+  </div>
+  </div>
 
-
-{% endblock content %}
-
-
+  <script>
+    // Add your other scripts here
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('.user-icon').addEventListener('click', function (event) {
+        event.preventDefault();
+        var currentHref = window.location.href;
+        var updatedHref = currentHref.split('#')[0] + '#user-account';
+        window.location.href = updatedHref;
+      });
+    });
+  </script>
 </body>
+
 </html>

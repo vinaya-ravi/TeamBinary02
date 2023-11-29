@@ -10,13 +10,37 @@ from wtforms import (StringField, TextAreaField, IntegerField, BooleanField,Radi
 from wtforms.validators import InputRequired, Length
 import sqlite3
 import joblib
-from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, UserMixin, login_user, login_required
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
+from flask import Flask, render_template
+import plotly.express as px
+import pandas as pd
 
-login_manager = LoginManager(app)
+sentimental_scores = [0.8, 0.6, 0.7, 0.5, 0.9, 0.4, 0.6, 0.8, 0.7, 0.5, 0.8, 0.6, 0.7, 0.5, 0.9, 0.8]
+
+
+data = {
+    'Personality Type': ['ISTJ', 'ISFJ', 'INFJ', 'INTJ', 'ISTP', 'ISFP', 'INFP', 'INTP',
+                         'ESTP', 'ESFP', 'ENFP', 'ENTP', 'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ'],
+    'Extroverted': [3, 2, 2, 1, 4, 3, 2, 1, 4, 5, 4, 5, 3, 3, 4, 5],
+    'Intuitive': [1, 1, 2, 2, 4, 5, 5, 4, 1, 2, 5, 5, 1, 2, 5, 4],
+    'Feeling': [1, 2, 4, 1, 1, 2, 4, 2, 1, 4, 5, 3, 1, 4, 5, 3],
+    'Judging': [5, 5, 5, 5, 1, 2, 3, 2, 1, 3, 3, 3, 5, 5, 4, 5],
+    'Sentimental Score': sentimental_scores
+}
+
+
+df = pd.DataFrame(data)
+
+df_melted = pd.melt(df, id_vars=['Personality Type', 'Sentimental Score'], var_name='Trait', value_name='Strength')
+
+# Create a Bar chart with Sentimental Scores
+fig_bar = px.bar(df_melted, x='Personality Type', y='Strength', color='Trait',
+                 title='MBTI Personality Traits Strengths with Sentimental Scores (Bar)',
+                 height=500, hover_data=['Sentimental Score'])
+
+# Save the interactive chart as an HTML file
+fig_bar.write_html("templates/AnalyticsPage_BarChart.html")
+
 
 def currtime():
     # Get the current date and time
@@ -244,14 +268,30 @@ questions = [
     ("In a group setting, are you more likely to:", [
         ('Take charge and make decisions.', 'a'),
         ('Listen and follow the group\'s lead.', 'b'),
+        ('Contribute ideas and suggestions.', 'c'),
+        ('Facilitate and ensure everyone\'s opinion is heard.', 'd'),
+        ('Adapt and go with the flow of the group.', 'e'),
+        ('Analyze the situation and provide a thoughtful response.', 'f'),
+        ('Encourage collaboration and teamwork.', 'g'),
+        ('Challenge ideas and stimulate debate.', 'h'),
     ]),
     ("When making a major life decision, what's more important to you?", [
         ('Logic and practicality.', 'a'),
         ('Emotions and personal values.', 'b'),
+        ('Consulting with trusted friends or family.', 'c'),
+        ('Considering long-term consequences.', 'd'),
+        ('Seeking advice from experts or professionals.', 'e'),
+        ('Weighing pros and cons thoroughly.', 'f'),
+        ('Trusting your intuition or gut feeling.', 'g'),
+        ('Exploring creative and innovative solutions.', 'h'),
     ]),
     ("How do you prefer to spend your free time?", [
         ('Engaging in structured activities or hobbies.', 'a'),
         ('Exploring new ideas and possibilities.', 'b'),
+        ('Connecting with friends and socializing.', 'c'),
+        ('Immersing yourself in artistic or creative pursuits.', 'd'),
+        ('Reading and gaining knowledge.', 'e'),
+        ('Participating in physical activities or sports.', 'f'),
     ]),
     ("When working on a project, do you tend to:", [
         ('Create detailed plans and stick to them.', 'a'),
@@ -305,6 +345,9 @@ def quiz():
 def chat():
     return render_template('chat.html')
 
+@app.route('/analytics')
+def index():
+    return render_template('AnalyticsPage_BarChart.html')
 
 @app.get('/predict1')
 def index_get():

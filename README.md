@@ -55,5 +55,5 @@ Based on these metrics, select Logistic Regression as the primary model for this
 **SpeechRecognition**: For converting spoken language into text for analysis.<br>
 
 
-**Conclusion**
+**Conclusion**<br>
 Personality prediction using machine learning can provide valuable insights into individual behaviors, preferences, and interactions. This project leverages the MBTI model and various machine learning algorithms to develop a robust personality prediction system. By analyzing social media posts, the system can accurately predict personality types, aiding in applications ranging from mental health assessments to human resource decisions.

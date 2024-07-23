@@ -41,20 +41,14 @@ Evaluate model performance using metrics such as accuracy and other relevant per
 Based on these metrics, select Logistic Regression as the primary model for this project.
 
 **Dependencies**
+
 Python 3.x
-
 Pandas
-
 Numpy
-
 Scikit-learn
-
 NLTK
-
 XGBoost
-
 Flask (for web interface)
-
 SpeechRecognition (for voice-based text detection)
 
 

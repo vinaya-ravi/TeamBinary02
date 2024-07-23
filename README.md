@@ -14,6 +14,7 @@ The "Voice-Based Text Detection" feature allows users to interact with the syste
 **Project Phases**
 
 **A. Data Analysis and Pre-Processing**<br>
+
 **Data Import and Initial Analysis:**<br>
 Import the dataset from Kaggle, which includes attributes like "Type" (MBTI personality type) and "Posts" (last 50 social media posts of each user).
 Analyze the dataset to identify missing values, data types, dataset size, and attribute dependencies.
@@ -26,16 +27,18 @@ Convert MBTI personality types to binary form (e.g., ENFP becomes [1,0,0,1]).
 Tokenize the text to pick the most frequently used words.
 
 **B. Feature Engineering**<br>
+
 **Transform Pre-Processed Data:**<br>
 Convert the cleaned text data into features that the machine learning model can understand.
 Use techniques like TF-IDF (Term Frequency-Inverse Document Frequency) to vectorize the text data.
 
 **C. Model Training and Testing**<br>
+
 **Algorithm Selection:**<br>
-Consider various algorithms for text classification, including Random Forest, Stochastic Gradient Descent, K-Nearest Neighbor (KNN), Logistic Regression, and XGBoost.
+Consider various algorithms for text classification, including Random Forest, Stochastic Gradient Descent, K-Nearest Neighbor (KNN), Logistic Regression, and XGBoost.<br>
 **Model Training:**<br>
 Train models on the pre-processed and vectorized text data.
-Use a 70:30 train-test split ratio for evaluation.
+Use a 70:30 train-test split ratio for evaluation.<br>
 **Model Evaluation:**<br>
 Evaluate model performance using metrics such as accuracy and other relevant performance metrics.
 Based on these metrics, select Logistic Regression as the primary model for this project.

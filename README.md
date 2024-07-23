@@ -42,14 +42,14 @@ Based on these metrics, select Logistic Regression as the primary model for this
 
 **Dependencies**
 
-Python 3.x
-Pandas
-Numpy
-Scikit-learn
-NLTK
-XGBoost
-Flask (for web interface)
-SpeechRecognition (for voice-based text detection)
+Python 3.x: The main programming language used for this project.
+Pandas: For data manipulation and analysis, particularly useful for handling tabular data and time series.
+Numpy: For numerical computations and handling arrays.
+Scikit-learn: For machine learning tasks, including model fitting, data preprocessing, and evaluation.
+NLTK (Natural Language Toolkit): For natural language processing tasks such as tokenization, stemming, and lemmatization.
+XGBoost: For efficient and accurate gradient boosting.
+Flask: For developing the web application interface.
+SpeechRecognition: For converting spoken language into text for analysis.
 
 
 **Conclusion**

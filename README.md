@@ -42,7 +42,7 @@ Based on these metrics, select Logistic Regression as the primary model for this
 
 **Dependencies**
 
-Python 3.x: The main programming language used for this project.
+**Python 3.x**: The main programming language used for this project.<br>
 Pandas: For data manipulation and analysis, particularly useful for handling tabular data and time series.
 Numpy: For numerical computations and handling arrays.
 Scikit-learn: For machine learning tasks, including model fitting, data preprocessing, and evaluation.

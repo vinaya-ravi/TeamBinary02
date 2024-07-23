@@ -7,6 +7,7 @@ This project aims to predict an individual's personality type using machine lear
 
 **Notifications**
 The "Notifications" feature keeps users informed about any updates, advancements, or supplementary details related to the ongoing personality assessment process.
+
 **Voice-Based Text Detection**
 The "Voice-Based Text Detection" feature allows users to interact with the system using spoken language or voice commands. The system converts spoken words into text for personality analysis, offering a convenient alternative to typing.
 
